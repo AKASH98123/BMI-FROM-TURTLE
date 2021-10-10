@@ -109,3 +109,53 @@ else:
     arrow.goto(500,110)
     arrow.down()
    
+   
+   
+   
+   
+   
+   ##################################################################################
+   
+   THIS IS BMI CALCULATOR
+   
+   def getdate():
+    import datetime
+    x=datetime.datetime.now()
+    return x.strftime("%d-%m-%y")
+
+
+
+name=input("PLZ ENTER YOUR NAME : ")
+print("WELCOME TO THE BMI CALCULATOR : ",name)
+age=int(input("\nENTER YOUR AGE IN BETWEEN 2 TO 120 : "))
+gender=input("\nENTER YOUR GENDER : ")
+weight=int(input("\nENTER YOUR WEIGHT : "))
+hei=int(input("\nENTER YOUR HEIGHT IN cm : "))
+
+def converter():
+    return float((hei)/100)  # WE GET HEIGHT IN METERS 
+
+height=converter()
+bmi=(weight)/(height)**2
+print("YOUR BMI IS :",bmi)
+
+if bmi<18.5:
+    print(" YOU NEED TO GAIN WEIGHT",name," YOU ARE UNDERWEIGHT")
+elif bmi>=18.5 and bmi<=24.9:
+    print("PERFECT YOU ARE NORMAL",name)
+elif bmi>=25 and bmi<=29.9:
+    print("TAKE CARE ",name," YOU ARE PRE-OBESITY")
+elif bmi>=30 and bmi<=34.9:
+    print("TRY TO DO YOGA DAILY",name," YOU ARE IN OBESITY-CLASS l")
+elif bmi>=35 and bmi<=39.9:
+    print("YOU NEED TO GO GYM",name," YOU ARE IN OBESITY-CLASS ll")
+else:
+    print("YOU ARE IN THE DANGER ZONE ",name," YOU ARE IN OBESITY-CLASS lll")
+
+with open(f"{name}.txt","w") as f:
+    f.write("AGE:: "+str(age)+"    "+"GENDER:: "+gender+"    "+"WEIGHT:: "+str(weight)+"    "+"HEIGHT:: "+str(hei)+"    "+"BMI:: "+str(bmi)+"    "+"\n")
+    f.close()
+
+
+
+
